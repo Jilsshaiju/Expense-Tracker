@@ -1,0 +1,54 @@
+name: expense_tracker
+description: "Smart Expense Tracker with AI Insights"
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.10.4
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  cupertino_icons: ^1.0.8
+
+  # Firebase
+  firebase_core: ^3.6.0
+  firebase_auth: ^5.3.1
+  cloud_firestore: ^5.4.4
+
+  # State Management
+  provider: ^6.1.2
+
+  # Charts
+  fl_chart: ^0.69.0
+
+  # Notifications
+  flutter_local_notifications: ^17.2.4
+  timezone: ^0.9.4
+
+  # Storage
+  shared_preferences: ^2.3.2
+
+  # Utilities
+  intl: ^0.19.0
+  uuid: ^4.5.1
+  google_fonts: ^6.2.1
+
+  # Voice Input
+  speech_to_text: ^7.0.0
+
+  # Icons & UI extras
+  flutter_animate: ^4.5.0
+  percent_indicator: ^4.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+  assets:
+    - logo.png
