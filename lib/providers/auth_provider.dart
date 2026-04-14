@@ -99,6 +99,7 @@ class AppAuthProvider extends ChangeNotifier {
     double? monthlyBudget,
     double? savingsGoal,
     String? name,
+    String? photoUrl,
   }) async {
     if (uid == null) return;
     final updates = <String, dynamic>{};
@@ -106,6 +107,7 @@ class AppAuthProvider extends ChangeNotifier {
     if (monthlyBudget != null) updates['monthlyBudget'] = monthlyBudget;
     if (savingsGoal != null) updates['savingsGoal'] = savingsGoal;
     if (name != null) updates['name'] = name;
+    if (photoUrl != null) updates['photoUrl'] = photoUrl;
     await _firestoreService.updateUserProfile(uid!, updates);
   }
 

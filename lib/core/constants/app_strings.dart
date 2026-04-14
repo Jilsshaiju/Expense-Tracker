@@ -40,7 +40,24 @@ class AppStrings {
   static const String shopping = 'Shopping';
   static const String others = 'Others';
 
-  static const List<String> categories = [food, travel, bills, shopping, others];
+  static const String health = 'Health';
+  static const String education = 'Education';
+  static const String entertainment = 'Entertainment';
+  static const String personalCare = 'Personal Care';
+  static const String debt = 'Debt';
+
+  static const List<String> categories = [
+    food,
+    travel,
+    bills,
+    shopping,
+    health,
+    education,
+    entertainment,
+    personalCare,
+    debt,
+    others,
+  ];
 
   // Analytics
   static const String daily = 'Daily';

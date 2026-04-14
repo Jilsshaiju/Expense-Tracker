@@ -115,4 +115,10 @@ class ExpenseProvider extends ChangeNotifier {
   Future<void> deleteExpense(String uid, String expenseId) async {
     await _firestoreService.deleteExpense(uid, expenseId);
   }
+
+  void clearLocal() {
+    _all = [];
+    _error = null;
+    notifyListeners();
+  }
 }

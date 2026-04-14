@@ -18,6 +18,11 @@ class CategorySelector extends StatelessWidget {
     'Travel': '🚗',
     'Bills': '💡',
     'Shopping': '🛍️',
+    'Health': '🩺',
+    'Education': '📘',
+    'Entertainment': '🎬',
+    'Personal Care': '🧴',
+    'Debt': '🤝',
     'Others': '💸',
   };
 

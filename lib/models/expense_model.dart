@@ -8,6 +8,8 @@ class ExpenseModel {
   final String description;
   final DateTime date;
   final String notes;
+  final bool isDebt;
+  final String owedTo;
 
   const ExpenseModel({
     required this.id,
@@ -17,6 +19,8 @@ class ExpenseModel {
     required this.description,
     required this.date,
     this.notes = '',
+    this.isDebt = false,
+    this.owedTo = '',
   });
 
   factory ExpenseModel.fromMap(Map<String, dynamic> map, String docId) {
@@ -28,6 +32,8 @@ class ExpenseModel {
       description: map['description'] as String,
       date: (map['date'] as Timestamp).toDate(),
       notes: map['notes'] as String? ?? '',
+      isDebt: map['isDebt'] as bool? ?? false,
+      owedTo: map['owedTo'] as String? ?? '',
     );
   }
 
@@ -39,6 +45,8 @@ class ExpenseModel {
       'description': description,
       'date': Timestamp.fromDate(date),
       'notes': notes,
+      'isDebt': isDebt,
+      'owedTo': owedTo,
     };
   }
 
@@ -50,6 +58,8 @@ class ExpenseModel {
     String? description,
     DateTime? date,
     String? notes,
+    bool? isDebt,
+    String? owedTo,
   }) {
     return ExpenseModel(
       id: id ?? this.id,
@@ -59,6 +69,8 @@ class ExpenseModel {
       description: description ?? this.description,
       date: date ?? this.date,
       notes: notes ?? this.notes,
+      isDebt: isDebt ?? this.isDebt,
+      owedTo: owedTo ?? this.owedTo,
     );
   }
 

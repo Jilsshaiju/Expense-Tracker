@@ -7,9 +7,12 @@ import '../screens/add_expense/add_expense_screen.dart';
 import '../screens/analytics/analytics_screen.dart';
 import '../screens/goals/goals_screen.dart';
 import '../screens/profile/profile_screen.dart';
+import '../screens/add_income/add_income_screen.dart';
+import '../screens/transactions/transactions_screen.dart';
+import '../screens/notifications/notifications_screen.dart';
 
 class AppRouter {
-  static const String splash = '/';
+  static const String splash = '/splash';
   static const String login = '/login';
   static const String signup = '/signup';
   static const String home = '/home';
@@ -17,6 +20,9 @@ class AppRouter {
   static const String analytics = '/analytics';
   static const String goals = '/goals';
   static const String profile = '/profile';
+  static const String addIncome = '/add-income';
+  static const String transactions = '/transactions';
+  static const String notifications = '/notifications';
 
   static Route<dynamic> generateRoute(RouteSettings settings) {
     switch (settings.name) {
@@ -36,6 +42,12 @@ class AppRouter {
         return _slide(const GoalsScreen());
       case profile:
         return _slide(const ProfileScreen());
+      case addIncome:
+        return _slideUp(const AddIncomeScreen());
+      case transactions:
+        return _slide(const TransactionsScreen());
+      case notifications:
+        return _slide(const NotificationsScreen());
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(

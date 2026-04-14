@@ -39,6 +39,11 @@ class AppColors {
   static const Color catTravel = Color(0xFF3B82F6);     // Blue
   static const Color catBills = Color(0xFFEF4444);      // Red
   static const Color catShopping = Color(0xFFA855F7);   // Purple
+  static const Color catHealth = Color(0xFF10B981);
+  static const Color catEducation = Color(0xFF2563EB);
+  static const Color catEntertainment = Color(0xFFF59E0B);
+  static const Color catPersonalCare = Color(0xFFEC4899);
+  static const Color catDebt = Color(0xFFDC2626);
   static const Color catOthers = Color(0xFF6B7280);     // Gray
 
   // Gradient
@@ -64,6 +69,16 @@ class AppColors {
         return catBills;
       case 'shopping':
         return catShopping;
+      case 'health':
+        return catHealth;
+      case 'education':
+        return catEducation;
+      case 'entertainment':
+        return catEntertainment;
+      case 'personal care':
+        return catPersonalCare;
+      case 'debt':
+        return catDebt;
       default:
         return catOthers;
     }

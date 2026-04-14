@@ -43,4 +43,9 @@ class BudgetProvider extends ChangeNotifier {
     );
     await _firestoreService.updateGoal(uid, updated);
   }
+
+  void clearLocal() {
+    _goals = [];
+    notifyListeners();
+  }
 }

@@ -14,6 +14,7 @@ import '../../core/utils/category_classifier.dart';
 import '../../core/widgets/custom_button.dart';
 import '../../core/widgets/app_snackbar.dart';
 import '../../services/notification_service.dart';
+import '../../router/app_router.dart';
 import 'widgets/category_selector.dart';
 
 class AddExpenseScreen extends StatefulWidget {
@@ -32,6 +33,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
   String _selectedCategory = 'Others';
   DateTime _selectedDate = DateTime.now();
   bool _isSaving = false;
+  bool _isDebtEntry = false;
+  final _owedToCtrl = TextEditingController();
 
   // Voice
   final SpeechToText _speech = SpeechToText();
@@ -119,6 +122,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
       description: _descCtrl.text.trim(),
       date: _selectedDate,
       notes: _notesCtrl.text.trim(),
+      isDebt: _isDebtEntry,
+      owedTo: _owedToCtrl.text.trim(),
     );
 
     try {
@@ -139,7 +144,8 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
 
       if (mounted) {
         AppSnackbar.showSuccess(context, 'Expense added!');
-        Navigator.pop(context);
+        Navigator.of(context)
+            .pushNamedAndRemoveUntil(AppRouter.home, (route) => false);
       }
     } catch (e) {
       if (mounted) {
@@ -155,6 +161,7 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
     _amountCtrl.dispose();
     _descCtrl.dispose();
     _notesCtrl.dispose();
+    _owedToCtrl.dispose();
     _speech.cancel();
     super.dispose();
   }
@@ -280,6 +287,29 @@ class _AddExpenseScreenState extends State<AddExpenseScreen> {
                       setState(() => _selectedCategory = cat),
                 ),
                 const SizedBox(height: 24),
+                SwitchListTile(
+                  contentPadding: EdgeInsets.zero,
+                  value: _isDebtEntry,
+                  title: const Text('This is a debt entry'),
+                  subtitle: const Text('Record amount owed to friend/shop'),
+                  onChanged: (v) => setState(() => _isDebtEntry = v),
+                ),
+                if (_isDebtEntry) ...[
+                  const SizedBox(height: 8),
+                  TextFormField(
+                    controller: _owedToCtrl,
+                    decoration:
+                        const InputDecoration(labelText: 'Owed to (Shop/Friend)'),
+                    validator: (v) {
+                      if (_isDebtEntry &&
+                          (v == null || v.trim().isEmpty)) {
+                        return 'Enter person or shop name';
+                      }
+                      return null;
+                    },
+                  ),
+                  const SizedBox(height: 24),
+                ],
 
                 // ── Date ─────────────────────────────────────────────
                 _sectionLabel('Date'),

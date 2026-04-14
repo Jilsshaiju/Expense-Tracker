@@ -26,6 +26,26 @@ class CategoryClassifier {
       'accessories', 'gadget', 'electronics', 'mobile', 'laptop', 'headphone',
       'purchase', 'buy', 'order', 'gift',
     ],
+    'Health': [
+      'hospital', 'clinic', 'doctor', 'medicine', 'pharmacy', 'health',
+      'medical', 'test', 'scan',
+    ],
+    'Education': [
+      'school', 'college', 'class', 'course', 'tuition', 'book', 'exam',
+      'fee', 'education',
+    ],
+    'Entertainment': [
+      'movie', 'cinema', 'game', 'concert', 'party', 'netflix', 'hotstar',
+      'entertainment', 'fun',
+    ],
+    'Personal Care': [
+      'salon', 'spa', 'haircut', 'cosmetic', 'skin', 'care', 'grooming',
+      'personal care',
+    ],
+    'Debt': [
+      'borrowed', 'debt', 'owed', 'udhar', 'loan return', 'shop pending',
+      'friend payment',
+    ],
   };
 
   /// Returns the best matching category for a given description.
